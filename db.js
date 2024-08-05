@@ -1,12 +1,20 @@
 //very imp file 
 // database connection(nodejs with mongodb)
 const mongoose= require("mongoose");
+require('dotenv').config();
 // define the mongodb connection with url
 // 1. IMPORT MONGOOSE AND DEFINE MONGODB CONNECTION
-const mongoURL = 'mongodb://localhost:27017/hotels'// hotels is name of the database
+//const mongoURL = 'mongodb://localhost:27017/hotels'
+// hotels is name of the database
 //2. SETUP THE MONGODB CONNECTION
-mongoose.connect(mongoURL,{
-    //usenewUrlParser: true
+//const mongoURL= 'mongodb+srv://helloworld:Ho6oGu69Zd1yEygz@cluster0.yduksfk.mongodb.net/';
+// local connection
+//const mongoURL =mongoURL_local;
+
+const mongoURL=process.env.MONGODB_URL;
+
+mongoose.connect(process.env.MONGODB_URL,{
+   // usenewUrlParser: true,
     //useUnifiedTopology: true
 })
 //3. get the default connection
